@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">CoffeeShop</string>
+    <string-array name="option">
+        <item>Drinks</item>
+        <item>Food</item>
+        <item>Accomplishment</item>
+        <item>Others</item>
+    </string-array>
+
+    <string name="title_activity_navigation">Navigation</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="message">Cant be Blank</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="hint_email">abs@xyz.com</string>
+    <string name="text_login">Login</string>
+    <string name="text_not_member">No account yet? Create one</string>
+    <string name="error_valid_email_password">Wrong email</string>
+    <string name="error_message_email">wrong email</string>
+    <string name="error_password_matcxh">wrong password</string>
+    <string name="success_message">Succefully register</string>
+    <string name="error_email_exists">wrong email</string>
+    <string name="hint_name">Silver</string>
+    <string name="text_register">Register</string>
+    <string name="error_message_name">wrong id</string>
+    <string name="error_message_password">wrong password</string>
+
+</resources>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightestBrown"
+    android:paddingBottom="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp"
+    tools:context=".RegisterActivity"
+    >
+
+    <LinearLayout
+        android:id="@+id/LL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo"
+            tools:layout_editor_absoluteX="68dp"
+            tools:layout_editor_absoluteY="-196dp" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_name"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/brown4"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="263dp" />
+
+        <EditText
+            android:id="@+id/NewUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_email"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/brown4"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="317dp" />
+
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:hint="password"
+            android:textColor="@color/brown4"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="374dp" />
+
+        <EditText
+            android:id="@+id/Cpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="confirm password"
+            android:maxLines="1"
+            android:textColor="@color/brown4"
+            tools:layout_editor_absoluteX="33dp"
+            tools:layout_editor_absoluteY="426dp" />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/brown4"
+            android:text="@string/text_register"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="-12dp"
+            tools:layout_editor_absoluteY="483dp" />
+
+        <TextView
+            android:id="@+id/login"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Already a member? Login"
+            android:textSize="16dp"
+            tools:layout_editor_absoluteX="20dp"
+            tools:layout_editor_absoluteY="541dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

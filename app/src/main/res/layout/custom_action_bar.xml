@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:fontFamily="cursive"
+            android:includeFontPadding="false"
+            android:text="Coffee Place"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:textColor="@color/darkBrown"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/navb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@color/brown4"
+            android:layout_marginLeft="170dp"
+            android:textAlignment="center"
+            android:layout_gravity="center_horizontal"
+            android:text="≡"
+            android:textColor="@color/darkBrown"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+</LinearLayout>
