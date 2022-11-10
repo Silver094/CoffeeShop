@@ -74,101 +74,19 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <HorizontalScrollView
-            android:id="@+id/horizontalScrollView"
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:layout_marginTop="15dp"
-            android:scrollbars="none">
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TableRow android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="Capachino"
-                        android:textAlignment="center"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:text="Capachino"
-                        android:textAlignment="center"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:text="Capachino"
-                        android:textAlignment="center"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:text="Capachino"
-                        android:textAlignment="center"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:text="Capachino"
-                        android:textAlignment="center"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:text="Capachino"
-                        android:textAlignment="center"
-                        android:textSize="18sp" />
-
-                </TableRow>
-
-                <TableRow android:layout_width="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/second"
-                        android:layout_width="140dp"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/logo" />
-
-                    <ImageView
-                        android:id="@+id/forth"
-                        android:layout_width="140dp"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/logo" />
-
-                    <ImageView
-                        android:id="@+id/fifth"
-                        android:layout_width="140dp"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/logo" />
-
-                    <ImageView
-                        android:id="@+id/third"
-                        android:layout_width="140dp"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/logo" />
-
-                    <ImageView
-                        android:id="@+id/first"
-                        android:layout_width="140dp"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/logo" />
-
-                    <ImageView
-                        android:id="@+id/sixth"
-                        android:layout_width="140dp"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/logo" />
-
-                </TableRow>
-
-            </TableLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:listitem="@layout/recomended" />
 
 
-        </HorizontalScrollView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_of_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/option"
             android:scrollbars="none"
             tools:listitem="@layout/template" />
 

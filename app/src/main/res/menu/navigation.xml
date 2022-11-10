@@ -8,16 +8,12 @@
         android:title="Cart"
         />
     <item
-        android:id="@+id/nav_account"
-        android:title="My Account" />
-
-    <item
-        android:id="@+id/nav_settings"
-        android:title="Settings" />
+        android:id="@+id/nav_profile"
+        android:title="My Profile" />
 
     <item
         android:id="@+id/nav_logout"
-        android:title="Login"
+        android:title="Logout"
         />
 
 </menu>

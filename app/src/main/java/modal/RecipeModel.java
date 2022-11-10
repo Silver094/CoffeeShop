@@ -1,4 +1,4 @@
-package com.example.coffeeshop;
+package modal;
 
 public class RecipeModel {
 
