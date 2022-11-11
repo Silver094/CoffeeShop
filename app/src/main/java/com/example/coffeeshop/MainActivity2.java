@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,10 +35,13 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+
         this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
         getSupportActionBar().setCustomView(R.layout.custom_action_bar);
         View view =getSupportActionBar().getCustomView();
+
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
 
@@ -51,7 +55,6 @@ public class MainActivity2 extends AppCompatActivity {
                     case R.id.nav_logout:
                         Intent intent = new Intent(MainActivity2.this, login.class);
                         startActivity(intent);
-                        finish();
                         break;
                     case R.id.nav_profile:
                         Intent intent1=new Intent(MainActivity2.this, Myprofile.class);
@@ -60,6 +63,11 @@ public class MainActivity2 extends AppCompatActivity {
                     case R.id.nav_cart:
                         Intent intent2=new Intent(MainActivity2.this,cart.class);
                         startActivity(intent2);
+                        break;
+                    case R.id.nav_home:
+                        Intent intent3=new Intent(MainActivity2.this,MainActivity2.class);
+                        startActivity(intent3);
+                        finish();
                         break;
                 }
                 return true;

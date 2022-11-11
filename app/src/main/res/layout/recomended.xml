@@ -72,14 +72,17 @@
             android:text="0"
             android:textColor="@color/darkBrown"
             />
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
-            android:layout_width="17dp"
-            android:layout_height="29dp"
-            android:clickable="true"
-            app:srcCompat="@drawable/googleg_standard_color_18" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/floatingActionButton"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
+        android:backgroundTint="@color/darkBrown"
+        android:text="Add to Cart"
+        android:gravity="center"
+        android:textSize="8sp" />
 
 
 </LinearLayout>

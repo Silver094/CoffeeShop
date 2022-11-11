@@ -108,4 +108,10 @@ public class DBCart extends SQLiteOpenHelper{
                 new String[]{String.valueOf(item.getImage())});
         db.close();
     }
+    public void deleteAllItem() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("delete from "+ TABLE_NAME);
+        db.close();
+
+    }
 }

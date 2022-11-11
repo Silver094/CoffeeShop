@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="173dp"
-        android:layout_height="179dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:outlineSpotShadowColor="@color/darkBrown"
         android:src="@drawable/logo" />
 

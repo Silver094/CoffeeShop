@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,23 +63,38 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.viewholder>{
             holder.add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    dm.setPrice(holder.price.getText().toString());
-                    dm.setName(holder.image_name.getText().toString());
-                    dm.setQuantity(holder.quantity.getText().toString());
-                    dm.setImage(model.getImage());
-                    db.addItem(dm);
-                    Toast.makeText(context,"Added to Cart", Toast.LENGTH_SHORT).show();
+                    if(Integer.parseInt(holder.quantity.getText().toString())>0) {
+                        dm.setPrice(holder.price.getText().toString());
+                        dm.setName(holder.image_name.getText().toString());
+                        dm.setQuantity(holder.quantity.getText().toString());
+                        dm.setImage(model.getImage());
+                        db.addItem(dm);
+                        Toast.makeText(context, "Added to Cart", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                        Toast.makeText(context, "Please Add Item", Toast.LENGTH_SHORT).show();
                 }
             });
             holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {
+                    if (Integer.parseInt(holder.quantity.getText().toString()) > 0) {
                     int a=Integer.parseInt(holder.quantity.getText().toString());
-                    a--;
-                    holder.quantity.setText(a+"");
+                    holder.quantity.setText("0");
+                    dm.setPrice(holder.price.getText().toString());
+                    dm.setName(holder.image_name.getText().toString());
+                    dm.setQuantity(holder.quantity.getText().toString());
+                    dm.setImage(model.getImage());
+                    db.deleteItem(dm);
                     Toast.makeText(context, "Removed from Cart", Toast.LENGTH_SHORT).show();
                     return true;
                 }
+                else
+                {
+
+                    Toast.makeText(context, "Item not present", Toast.LENGTH_SHORT).show();
+                    return false;
+                }}
 
             });
         }
@@ -92,7 +108,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.viewholder>{
 
             ImageView item_image;
             TextView image_name,price,quantity;
-            FloatingActionButton add;
+            Button add;
 
             public viewholder(@NonNull View itemView) {
                 super(itemView);

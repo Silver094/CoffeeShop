@@ -1,13 +1,19 @@
 package com.example.coffeeshop;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.coffeeshop.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -20,71 +26,70 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 
 
 public class Myprofile extends AppCompatActivity {
         FusedLocationProviderClient client;
+    Button navb;
+    NavigationView nav;
     SupportMapFragment supportMapFragment;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_address);
+            this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+            getSupportActionBar().setDisplayShowCustomEnabled(true);
+            getSupportActionBar().setCustomView(R.layout.custom_action_bar);
+            View view =getSupportActionBar().getCustomView();
+            navb=findViewById(R.id.navb);
+            nav=findViewById(R.id.nav);
+            nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    switch (item.getItemId()) {
+                        case R.id.nav_logout:
+                            Intent intent = new Intent(Myprofile.this, login.class);
+                            startActivity(intent);
+                            finish();
+                            break;
+                        case R.id.nav_profile:
+                            Intent intent1=new Intent(Myprofile.this, Myprofile.class);
+                            startActivity(intent1);
+                            finish();
+                            break;
+                        case R.id.nav_cart:
+                            Intent intent2=new Intent(Myprofile.this,cart.class);
+                            startActivity(intent2);
+                            finish();
+                            break;
+                        case R.id.nav_home:
+                            Intent intent3=new Intent(Myprofile.this,MainActivity2.class);
+                            startActivity(intent3);
+                            finish();
+                            break;
+                    }
+                    return true;
+                }
 
-//
-//            supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView);
-//
-//            client = LocationServices.getFusedLocationProviderClient(this);
-//
-//            if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-//                getCurrentLocation();
-//            } else {
-//                ActivityCompat.requestPermissions(Myprofile.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
-//            }
-//
-//        }
-//
-//        private void getCurrentLocation() {
-//
-//            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//                // TODO: Consider calling
-//                //    ActivityCompat#requestPermissions
-//                // here to request the missing permissions, and then overriding
-//                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//                //                                          int[] grantResults)
-//                // to handle the case where the user grants the permission. See the documentation
-//                // for ActivityCompat#requestPermissions for more details.
-//                return;
-//            }
-//            Task<Location> task = client.getLastLocation();
-//            task.addOnSuccessListener(new OnSuccessListener<Location>() {
-//                @Override
-//                public void onSuccess(Location location) {
-//                    if(location!=null){
-//                        supportMapFragment.getMapAsync(new OnMapReadyCallback() {
-//                            @Override
-//                            public void onMapReady(@NonNull GoogleMap googleMap) {
-//                                LatLng latLng = new LatLng(location.getLatitude(),location.getLongitude());
-//                                MarkerOptions options = new MarkerOptions().position(latLng).title("I am there");
-//                                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
-//                                googleMap.addMarker(options);
-//                            }
-//                        });
-//                    }
-//                }
-//            });
-//
-//        }
-//
-//        @Override
-//        public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//
-//            if(requestCode==44){
-//                if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
-//                    getCurrentLocation();
-//                }
-//            }
-//
+            });
+
+            navb.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(nav.getVisibility()==View.INVISIBLE)
+                    {
+                        nav.setVisibility(View.VISIBLE);
+                        navb.setText("→");
+                    }
+                    else {
+                        nav.setVisibility(View.INVISIBLE);
+                        navb.setText("≡");
+                    }
+                }
+            });
+
         }
     }

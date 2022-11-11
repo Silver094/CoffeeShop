@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.coffeeshop.helpers.InputValidation;
 
+import DBhandler.DBCart;
 import DBhandler.DBhandlerUser;
 
 public class login extends AppCompatActivity {
@@ -22,11 +24,15 @@ public class login extends AppCompatActivity {
     TextView register;
     DBhandlerUser database;
     InputValidation validate;
+    DBCart db;
     LinearLayout LL;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        db=new DBCart(this);
+        db.deleteAllItem();
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         this.getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
         getSupportActionBar().setCustomView(R.layout.custom_action_bar);

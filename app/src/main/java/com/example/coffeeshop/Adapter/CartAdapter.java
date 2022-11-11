@@ -1,6 +1,8 @@
 package com.example.coffeeshop.Adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.coffeeshop.R;
+import com.example.coffeeshop.cart;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -36,7 +39,7 @@ public class CartAdapter extends RecyclerView.Adapter<com.example.coffeeshop.Ada
         @NonNull
         @Override
         public com.example.coffeeshop.Adapter.CartAdapter.viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(context).inflate(R.layout.order_template,parent,false);
+            View view = LayoutInflater.from(context).inflate(R.layout.cart_template,parent,false);
             return new com.example.coffeeshop.Adapter.CartAdapter.viewholder(view);
         }
 
@@ -68,10 +71,18 @@ public class CartAdapter extends RecyclerView.Adapter<com.example.coffeeshop.Ada
                 @Override
                 public boolean onLongClick(View view) {
                     int a=Integer.parseInt(holder.quantity.getText().toString());
-                    a--;
-                    holder.quantity.setText(a+"");
+                    holder.quantity.setText("0");
+                    dm.setPrice(holder.price.getText().toString());
+                    dm.setName(holder.image_name.getText().toString());
+                    dm.setQuantity(holder.quantity.getText().toString());
+                    dm.setImage(model.getImage());
+                    db.deleteItem(dm);
                     Toast.makeText(context, "Removed from Cart", Toast.LENGTH_SHORT).show();
+                    Intent intent =new Intent(context,cart.class);
+                    context.startActivity(intent);
+                    ((Activity)context).finish();
                     return true;
+
                 }
 
             });
@@ -86,7 +97,6 @@ public class CartAdapter extends RecyclerView.Adapter<com.example.coffeeshop.Ada
 
             ImageView item_image;
             TextView image_name,price,quantity;
-            FloatingActionButton add;
 
             public viewholder(@NonNull View itemView) {
                 super(itemView);
@@ -94,7 +104,6 @@ public class CartAdapter extends RecyclerView.Adapter<com.example.coffeeshop.Ada
                 image_name = itemView.findViewById(R.id.image_name);
                 price = itemView.findViewById(R.id.price);
                 quantity=itemView.findViewById(R.id.quantity);
-                add=itemView.findViewById(R.id.floatingActionButton);
 
             }
         }
